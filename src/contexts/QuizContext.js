@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { useLocation } from "react-router-dom";
 
 const QuizContext = createContext();
 
@@ -80,7 +81,8 @@ function QuizProvider({ children }) {
   );
 
   useEffect(function () {
-    fetch("http://127.0.0.1:8000/questions")
+    fetch(`https://react-quiz-jphdz.netlify.app:8000/questions`)
+      // fetch(`http://localhost:8000/questions`)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataRecived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
