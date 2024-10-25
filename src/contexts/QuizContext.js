@@ -81,8 +81,7 @@ function QuizProvider({ children }) {
   );
 
   useEffect(function () {
-    fetch(`https://react-quiz-jphdz.netlify.app:8000/questions`)
-      // fetch(`http://localhost:8000/questions`)
+    fetch(`http://localhost:8000/questions`)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataRecived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
